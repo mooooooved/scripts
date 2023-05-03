@@ -19,7 +19,7 @@ function Download-File {
   }
 }
 
-$dlPath = (New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path
+$dlPath = "$HOME\Downloads"
 $ioq3Path = Join-Path $dlPath "ioq3"
 
 if (Test-Path $ioq3Path) {
