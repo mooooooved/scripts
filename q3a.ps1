@@ -13,7 +13,7 @@ function Download-File {
 }
 
 $dlPath = "$HOME\Downloads"
-$ioq3Path = Join-Path $dlPath "ioq3"
+$ioq3Path = "$dlPath\ioq3"
 
 if (Test-Path $ioq3Path) {
   Start-Process -FilePath "$ioq3Path\ioquake3.x86_64.exe" -WorkingDirectory $ioq3Path -NoNewWindow
@@ -22,11 +22,11 @@ if (Test-Path $ioq3Path) {
   New-Item -ItemType Directory -Path $ioq3Path
 }
 
-Download-File -Url "https://files.ioquake3.org/Windows.zip" -Path (Join-Path "$ioq3Path\Windows.zip")
+Download-File -Url "https://files.ioquake3.org/Windows.zip" -Path "$ioq3Path\Windows.zip"
 
-Expand-Archive -Path (Join-Path $ioq3Path "Windows.zip") -DestinationPath $ioq3Path
+Expand-Archive -Path "$ioq3Path\Windows.zip" -DestinationPath $ioq3Path
 
-$zip = Join-Path $ioq3Path "release-mingw64-x86_64.zip"
+$zip = "$ioq3Path\release-mingw64-x86_64.zip"
 if (Test-Path $zip) {
   Expand-Archive -Path $zip -DestinationPath $ioq3Path
 } else {
