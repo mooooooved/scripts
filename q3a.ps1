@@ -50,25 +50,16 @@ Write-Host "==== you can minimize this window ===="
 Write-Host "====  brought to you by rretroo   ===="
 
 $dlPath = "$HOME\Downloads"
-$ioq3Path = "$dlPath\ioq3"
+$ioq3Path = "$dlPath\Quake3"
 
-if (Test-Path $ioq3Path) {
-  Start-Process -FilePath "$ioq3Path\ioquake3.x86_64.exe" -WorkingDirectory $ioq3Path -NoNewWindow
-  Exit
-} else {
+if (-Not Test-Path $ioq3Path) {
   New-Item -ItemType Directory -Path $ioq3Path
 }
 
-Download-File -Url "https://files.ioquake3.org/Windows.zip" -Path "$ioq3Path\Windows.zip"
+Download-File -Url "https://fte.triptohell.info/moodles/win32/fteqw.exe" -Path "$ioq3Path\fteqw.exe"
 
-Expand-Archive -Path "$ioq3Path\Windows.zip" -DestinationPath $ioq3Path
-
-$zip = "$ioq3Path\release-mingw64-x86_64.zip"
-if (Test-Path $zip) {
-  Expand-Archive -Path $zip -DestinationPath $ioq3Path
-} else {
-  Write-Error "release-mingw64-x86_64.zip not found!"
-  Pause
+If (-Not Test-Path "$ioq3path\baseq3") {
+  New-Item -ItemType Directory -Path "$ioq3Path\baseq3"
 }
 
 Download-File -Url "https://github.com/nrempel/q3-server/raw/master/baseq3/pak0.pk3" -Path "$ioq3Path\baseq3\pak0.pk3"
@@ -84,5 +75,5 @@ Download-File -Url "https://github.com/nrempel/q3-server/raw/master/baseq3/pak8.
 Write-Host "==== INSTALLED. PRESS ENTER TO RUN ===="
 Pause
 
-Start-Process -FilePath "$ioq3Path\ioquake3.x86_64.exe" -WorkingDirectory $ioq3Path -NoNewWindow
+Start-Process -FilePath "$ioq3Path\fteqw.exe" -WorkingDirectory $ioq3Path
 Exit
