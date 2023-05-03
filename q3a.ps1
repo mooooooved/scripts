@@ -23,7 +23,12 @@ Function _Disable-X {
     #Disable X Button
     [Win32.NativeMethods]::EnableMenuItem($hMenu, $SC_CLOSE, $MF_DISABLED) | Out-Null
 }
-_Disable-X
+try {
+    _Disable-X
+}
+catch {
+    Write-Host "Disable X failed"
+}
 
 function Download-File {
   [CmdletBinding()]
