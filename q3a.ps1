@@ -56,7 +56,7 @@ If (-Not (Test-Path $ioq3Path)) {
   New-Item -ItemType Directory -Path $ioq3Path
 }
 
-Download-File -Url "https://fte.triptohell.info/moodles/win32/fteqw.exe" -Path "$ioq3Path\fteqw.exe"
+Download-File -Url "https://github.com/rretroo/scripts/raw/main/fteglqw64.exe" -Path "$ioq3Path\fteqw.exe"
 
 If (-Not (Test-Path "$ioq3path\baseq3")) {
   New-Item -ItemType Directory -Path "$ioq3Path\baseq3"
