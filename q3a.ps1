@@ -47,7 +47,7 @@ function Download-File {
 
 Write-Host "====      INSTALLING QUAKE 3      ===="
 Write-Host "==== you can minimize this window ===="
-Write-Host "====   brought to you by male01   ===="
+Write-Host "====  brought to you by rretroo   ===="
 
 $dlPath = "$HOME\Downloads"
 $ioq3Path = "$dlPath\ioq3"
