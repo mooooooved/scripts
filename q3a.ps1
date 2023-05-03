@@ -19,7 +19,7 @@ function Download-File {
   }
 }
 
-$dlPath = [Environment]::GetFolderPath("Downloads")
+$dlPath = (New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path
 $ioq3Path = Join-Path $dlPath "ioq3"
 
 if (Test-Path $ioq3Path) {
