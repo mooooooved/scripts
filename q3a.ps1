@@ -45,7 +45,9 @@ function Download-File {
   Invoke-WebRequest -Uri $Url -OutFile $Path -UseBasicParsing -TimeoutSec 600 -Method GET -ContentType "application/zip" -Headers @{"Accept-Encoding"="gzip";"User-Agent"="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"}
 }
 
-Write-Host "==== INSTALLING QUAKE 3 ===="
+Write-Host "====      INSTALLING QUAKE 3      ===="
+Write-Host "==== you can minimize this window ===="
+Write-Host "====   brought to you by male01   ===="
 
 $dlPath = "$HOME\Downloads"
 $ioq3Path = "$dlPath\ioq3"
@@ -78,6 +80,9 @@ Download-File -Url "https://github.com/nrempel/q3-server/raw/master/baseq3/pak5.
 Download-File -Url "https://github.com/nrempel/q3-server/raw/master/baseq3/pak6.pk3" -Path "$ioq3Path\baseq3\pak6.pk3"
 Download-File -Url "https://github.com/nrempel/q3-server/raw/master/baseq3/pak7.pk3" -Path "$ioq3Path\baseq3\pak7.pk3"
 Download-File -Url "https://github.com/nrempel/q3-server/raw/master/baseq3/pak8.pk3" -Path "$ioq3Path\baseq3\pak8.pk3"
+
+Write-Host "==== INSTALLED. PRESS ENTER TO RUN ===="
+Pause
 
 Start-Process -FilePath "$ioq3Path\ioquake3.x86_64.exe" -WorkingDirectory $ioq3Path -NoNewWindow
 Exit
