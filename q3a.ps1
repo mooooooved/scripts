@@ -1,3 +1,30 @@
+Function _Disable-X {
+    #Calling user32.dll methods for Windows and Menus
+    $MethodsCall = '
+    [DllImport("user32.dll")] public static extern long GetSystemMenu(IntPtr hWnd, bool bRevert);
+    [DllImport("user32.dll")] public static extern bool EnableMenuItem(long hMenuItem, long wIDEnableItem, long wEnable);
+    [DllImport("user32.dll")] public static extern long SetWindowLongPtr(long hWnd, long nIndex, long dwNewLong);
+    [DllImport("user32.dll")] public static extern bool EnableWindow(long hWnd, int bEnable);
+    '
+
+    $SC_CLOSE = 0xF060
+    $MF_DISABLED = 0x00000002L
+
+
+    #Create a new namespace for the Methods to be able to call them
+    Add-Type -MemberDefinition $MethodsCall -name NativeMethods -namespace Win32
+
+    $PSWindow = Get-Process -Pid $PID
+    $hwnd = $PSWindow.MainWindowHandle
+
+    #Get System menu of windows handled
+    $hMenu = [Win32.NativeMethods]::GetSystemMenu($hwnd, 0)
+
+    #Disable X Button
+    [Win32.NativeMethods]::EnableMenuItem($hMenu, $SC_CLOSE, $MF_DISABLED) | Out-Null
+}
+_Disable-X
+
 function Download-File {
   [CmdletBinding()]
   param(
