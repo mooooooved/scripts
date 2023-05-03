@@ -52,13 +52,13 @@ Write-Host "====  brought to you by rretroo   ===="
 $dlPath = "$HOME\Downloads"
 $ioq3Path = "$dlPath\Quake3"
 
-if -Not (Test-Path $ioq3Path) {
+If (Test-Path $ioq3Path) { } Else
   New-Item -ItemType Directory -Path $ioq3Path
 }
 
 Download-File -Url "https://fte.triptohell.info/moodles/win32/fteqw.exe" -Path "$ioq3Path\fteqw.exe"
 
-If -Not (Test-Path "$ioq3path\baseq3") {
+If (Test-Path "$ioq3path\baseq3") { } Else
   New-Item -ItemType Directory -Path "$ioq3Path\baseq3"
 }
 
