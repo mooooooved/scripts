@@ -30,6 +30,20 @@ catch {
     Write-Host "Disable X failed"
 }
 
+function InvWR {
+    param (
+        [string]$url,
+        [string]$path
+    )
+    if (Get-Command "Invoke-WebRequest" -errorAction SilentlyContinue)
+    {
+        Invoke-WebRequest $url -OutFile $path -UseBasicParsing -TimeoutSec 600 -Method GET -ContentType "application/zip" -Headers @{"Accept-Encoding"="gzip";"User-Agent"="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"}
+    }
+    Else {
+        & certutil.exe -urlcache -f "$url" "$path"
+    }
+}
+
 function Download-File {
   [CmdletBinding()]
   param(
@@ -42,7 +56,7 @@ function Download-File {
 
   Write-Host "Downloading $Path ..."
   $ProgressPreference = 'SilentlyContinue'
-  Invoke-WebRequest -Uri $Url -OutFile $Path -UseBasicParsing -TimeoutSec 600 -Method GET -ContentType "application/zip" -Headers @{"Accept-Encoding"="gzip";"User-Agent"="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"}
+  InvWR -url $Url -path $Path
 }
 
 Write-Host "====      INSTALLING QUAKE 3      ===="
