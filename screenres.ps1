@@ -93,7 +93,7 @@ namespace Resolution
 
 
 
-    public class PrmaryScreenResolution 
+    public class PrimaryScreenResolution 
     { 
         static public string ChangeResolution(int width, int height) 
         { 
@@ -155,7 +155,7 @@ namespace Resolution
 "@ 
 
 Add-Type $pinvokeCode -ErrorAction SilentlyContinue 
-[Resolution.PrmaryScreenResolution]::ChangeResolution($width,$height) 
+[Resolution.PrimaryScreenResolution]::ChangeResolution($width,$height) 
 }
 
 Set-ScreenResolution -Width $args[0] -Height $args[1] 
