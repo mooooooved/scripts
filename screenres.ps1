@@ -158,4 +158,4 @@ Add-Type $pinvokeCode -ErrorAction SilentlyContinue
 [Resolution.PrimaryScreenResolution]::ChangeResolution($width,$height) 
 }
 
-Set-ScreenResolution -Width $args[0] -Height $args[1] 
+Set-ScreenResolution -Width $W -Height $H 
