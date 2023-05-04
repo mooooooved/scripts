@@ -86,8 +86,9 @@ Download-File -Url "https://github.com/nrempel/q3-server/raw/master/baseq3/pak6.
 Download-File -Url "https://github.com/nrempel/q3-server/raw/master/baseq3/pak7.pk3" -Path "$ioq3Path\baseq3\pak7.pk3"
 Download-File -Url "https://github.com/nrempel/q3-server/raw/master/baseq3/pak8.pk3" -Path "$ioq3Path\baseq3\pak8.pk3"
 
-Write-Host "==== INSTALLED. PRESS ENTER TO RUN ===="
-Pause
+#Write-Host "==== INSTALLED. PRESS ENTER TO RUN ===="
+#Pause
+Write-Host "==== INSTALLED ===="
 
 Start-Process -FilePath "$ioq3Path\fteqw.exe" -WorkingDirectory $ioq3Path
 Exit
