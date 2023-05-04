@@ -78,5 +78,5 @@ Expand-Archive -LiteralPath "$ioq3Path\crawl.zip" -DestinationPath $ioq3Path
 #Pause
 Write-Host "==== INSTALLED ===="
 
-Start-Process -FilePath "$ioq3Path\crawl.exe" -WorkingDirectory $ioq3Path
+Start-Process -FilePath "$ioq3Path\stone_soup-console-0.29\crawl.exe" -WorkingDirectory $ioq3Path
 Exit
