@@ -143,10 +143,20 @@ $showPolska2 = {
   $urlToOpen = $urls[$randomIndex]
   Start-Process $urlToOpen
 }
+$ranMouse = {
+    Add-Type -AssemblyName System.Windows.Forms
+    $screen = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
+    $randomX = Get-Random -Minimum $screen.Left -Maximum ($screen.Right + 1)
+    $randomY = Get-Random -Minimum $screen.Top -Maximum ($screen.Bottom + 1)
+    [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point($randomX, $randomY)
+}
 while ($true) {
+  Invoke-Command $ranMouse -ErrorAction SilentlyContinue
+  Start-Sleep -Seconds 1
+  Invoke-Command $ranMouse -ErrorAction SilentlyContinue
+  Start-Sleep -Seconds 1
   Invoke-Command $showPolska0 -ErrorAction SilentlyContinue
   Invoke-Command $showPolska -ErrorAction SilentlyContinue
   Invoke-Command $showPolska -ErrorAction SilentlyContinue
   Invoke-Command $showPolska2 -ErrorAction SilentlyContinue
-  Start-Sleep -Seconds 1
 }
