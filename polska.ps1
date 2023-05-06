@@ -136,7 +136,7 @@ $showPolska2 = {
     "https://www.youtube.com/watch?v=mTx45S-dQmQ",
     "https://www.youtube.com/watch?v=AJsWz9SlpfA",
     "https://www.youtube.com/watch?v=AJsWz9SlpfA",
-    "https://www.youtube.com/watch?v=AJsWz9SlpfA",
+    "https://www.youtube.com/watch?v=AJsWz9SlpfA"
   )
 
   $randomIndex = Get-Random -Minimum 0 -Maximum $urls.Count
