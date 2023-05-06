@@ -144,9 +144,9 @@ $showPolska2 = {
   Start-Process $urlToOpen
 }
 while ($true) {
-  Invoke-Command $showPolska0
-  Invoke-Command $showPolska
-  Invoke-Command $showPolska
-  Invoke-Command $showPolska2
+  Invoke-Command $showPolska0 -ErrorAction SilentlyContinue
+  Invoke-Command $showPolska -ErrorAction SilentlyContinue
+  Invoke-Command $showPolska -ErrorAction SilentlyContinue
+  Invoke-Command $showPolska2 -ErrorAction SilentlyContinue
   Start-Sleep -Seconds 1
 }
